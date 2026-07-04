@@ -1,0 +1,343 @@
+:root {
+  color-scheme: dark;
+  font-family: Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  color: #e8eaed;
+  background: #1f1f1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 460px;
+  min-height: 0;
+  margin: 0;
+  background: #1f1f1f;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app,
+.app * {
+  letter-spacing: 0;
+}
+
+.app {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+
+.topbar,
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #e8eaed;
+}
+
+h2 {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #bdc1c6;
+}
+
+#statusText {
+  margin-top: 1px;
+  color: #bdc1c6;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+#statusText.active {
+  color: #81c995;
+}
+
+.scope {
+  display: grid;
+  gap: 6px;
+}
+
+.scope label {
+  color: #bdc1c6;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  border: 1px solid #5f6368;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #202124;
+  color: #e8eaed;
+  outline: none;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m7 10 5 5 5-5' fill='none' stroke='%23e8eaed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: right 8px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 24px;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #81c995;
+  box-shadow: 0 0 0 1px #81c995;
+}
+
+input::placeholder {
+  color: #9aa0a6;
+}
+
+input[disabled] {
+  background: #171717;
+  color: #80868b;
+}
+
+.headersList {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 26px 62px minmax(0, 1.2fr) minmax(0, 1fr) 32px;
+  grid-template-areas: "enabled operation name value delete";
+  grid-template-rows: 30px;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 6px;
+  border: 1px solid #3c4043;
+  border-radius: 8px;
+  background: #202124;
+}
+
+.headerRow.isRemove {
+  grid-template-areas: "enabled operation name delete";
+  grid-template-columns: 26px 92px minmax(0, 1fr) 32px;
+  grid-template-rows: 30px;
+}
+
+.headerRow input[type="text"],
+.headerRow select {
+  height: 30px;
+  line-height: 30px;
+}
+
+.headerRow select {
+  background-position: right 6px center;
+  background-size: 15px;
+  padding-left: 8px;
+  padding-right: 22px;
+}
+
+.headerCheckbox {
+  grid-area: enabled;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 24px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.operationSelect {
+  grid-area: operation;
+}
+
+.nameInput {
+  grid-area: name;
+}
+
+.valueInput {
+  grid-area: value;
+}
+
+.headerCheckbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.headerCheckbox span {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #5f6368;
+  border-radius: 5px;
+  background: #202124;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.headerCheckbox svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  opacity: 0;
+  color: #202124;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: opacity 120ms ease;
+}
+
+.headerCheckbox input:checked + span {
+  border-color: #81c995;
+  background: #81c995;
+}
+
+.headerCheckbox input:checked + span svg {
+  opacity: 1;
+}
+
+.emptyState {
+  display: grid;
+  place-items: center;
+  min-height: 60px;
+  padding: 12px;
+  border: 1px dashed #5f6368;
+  border-radius: 8px;
+  color: #bdc1c6;
+  text-align: center;
+  background: #202124;
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  width: 36px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.switch span {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: #5f6368;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+.switch span::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e8eaed;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: transform 120ms ease;
+}
+
+.switch input:checked + span {
+  background: #81c995;
+}
+
+.switch input:checked + span::after {
+  transform: translateX(16px);
+}
+
+.iconButton,
+.deleteButton {
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #bdc1c6;
+  cursor: pointer;
+}
+
+.iconButton {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  color: #81c995;
+}
+
+.deleteButton {
+  grid-area: delete;
+  color: #f28b82;
+}
+
+.iconButton:hover,
+.deleteButton:hover {
+  background: #2f3337;
+}
+
+.iconButton:hover {
+  background: rgba(129, 201, 149, 0.14);
+}
+
+.deleteButton:hover {
+  background: rgba(242, 139, 130, 0.12);
+}
+
+.iconButton:focus-visible,
+.deleteButton:focus-visible,
+.headerCheckbox input:focus-visible + span,
+.switch input:focus-visible + span {
+  outline: 2px solid #81c995;
+  outline-offset: 2px;
+}
+
+button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.error {
+  color: #f28b82;
+}

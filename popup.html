@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Header Switch</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>Headers</h1>
+          <p id="statusText">Loading...</p>
+        </div>
+        <label class="switch" title="Enable or disable all header rules">
+          <input id="globalEnabled" type="checkbox" checked>
+          <span></span>
+        </label>
+      </header>
+
+      <section class="scope">
+        <label for="urlFilter">URL filter</label>
+        <input id="urlFilter" type="text" placeholder="All URLs, e.g. ||api.example.com/">
+      </section>
+
+      <section>
+        <div class="sectionHeader">
+          <h2>Request headers</h2>
+          <button id="addHeader" class="iconButton" type="button" title="Add header" aria-label="Add header">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+        </div>
+        <div id="headersList" class="headersList"></div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

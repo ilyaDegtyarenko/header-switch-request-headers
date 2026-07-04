@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Header Switch: Request Headers",
+  "version": "0.2.0",
+  "description": "Adds or removes configured request headers from matching Chrome requests.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16-inactive.png",
+    "32": "icons/icon32-inactive.png",
+    "48": "icons/icon48-inactive.png",
+    "128": "icons/icon128-inactive.png"
+  },
+  "action": {
+    "default_title": "Header Switch",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16-inactive.png",
+      "32": "icons/icon32-inactive.png",
+      "48": "icons/icon48-inactive.png",
+      "128": "icons/icon128-inactive.png"
+    }
+  }
+}
